@@ -1,5 +1,9 @@
 package xyz.phyoekhant.padc_week3.models;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import xyz.phyoekhant.padc_week3.data.agents.RestaurantDataAgent;
 import xyz.phyoekhant.padc_week3.data.agents.retrofit.RetrofitDataAgent;
 
@@ -12,6 +16,14 @@ public class BaseModel {
 
     public BaseModel() {
         dataAgent = RetrofitDataAgent.getInstance();
+
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        }
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEventMainThread(Object obj) {
+
+    }
 }

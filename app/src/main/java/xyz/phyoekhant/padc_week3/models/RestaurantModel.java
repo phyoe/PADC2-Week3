@@ -1,6 +1,5 @@
 package xyz.phyoekhant.padc_week3.models;
 
-import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
@@ -21,10 +20,6 @@ public class RestaurantModel extends BaseModel {
     private RestaurantModel() {
         super();
         mRestaurantList = new ArrayList<>();
-
-        if (!EventBus.getDefault().isRegistered(this)) {
-            EventBus.getDefault().register(this);
-        }
     }
 
     public static RestaurantModel getInstance() {
