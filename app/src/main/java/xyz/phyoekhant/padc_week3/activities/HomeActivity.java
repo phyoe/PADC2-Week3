@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -17,6 +18,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import xyz.phyoekhant.padc_week3.R;
 import xyz.phyoekhant.padc_week3.events.DataEvent;
+import xyz.phyoekhant.padc_week3.fragments.RestaurantListFragment;
 
 public class HomeActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -45,6 +47,16 @@ public class HomeActivity extends BaseActivity
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
+
+        if (savedInstanceState == null) {
+            navigateToRestaurantList();
+        }
+    }
+
+    private void navigateToRestaurantList() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fl_container, RestaurantListFragment.newInstance())
+                .commit();
     }
 
     @Override
@@ -72,6 +84,7 @@ public class HomeActivity extends BaseActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_search) {
+            Toast.makeText(this, "Search ...", Toast.LENGTH_SHORT).show();
             return true;
         }
 
@@ -84,9 +97,9 @@ public class HomeActivity extends BaseActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_gallery) {
-            // Handle the camera action
-        }
+        if (id == R.id.nav_restaurant_list) {
+            navigateToRestaurantList();
+    }
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

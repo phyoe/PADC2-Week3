@@ -5,7 +5,7 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import xyz.phyoekhant.padc_week3.data.agents.RestaurantDataAgent;
-import xyz.phyoekhant.padc_week3.data.agents.retrofit.RetrofitDataAgent;
+import xyz.phyoekhant.padc_week3.data.agents.RetrofitDataAgent;
 
 /**
  * Created by Phyoe Khant on 6/20/2017.
