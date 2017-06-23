@@ -17,4 +17,20 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="MyAppGrayText">
+        <item name="android:textColor">@color/divider</item>
+    </style>
+
+    <style name="MyAppTitleText">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="MyAppPriceyExpensive" parent="MyAppTitleText">
+        <item name="android:textColor">@color/divider</item>
+    </style>
+
+    <style name="MyAppPriceyCheap" parent="MyAppTitleText">
+        <item name="android:textColor">@color/soft_gray</item>
+    </style>
+
 </resources>
