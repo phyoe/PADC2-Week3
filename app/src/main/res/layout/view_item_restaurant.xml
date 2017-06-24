@@ -35,6 +35,7 @@
             android:layout_marginTop="@dimen/margin_medium_2"
             android:src="@drawable/ic_thecoffeebeantealeaf" />
 
+        <!--
         <RatingBar
             android:id="@+id/ratingBar"
             style="?android:attr/ratingBarStyleSmall"
@@ -47,18 +48,21 @@
             android:clickable="false"
             android:numStars="5"
             android:rating="2.5"
-            android:stepSize="0.1" />
+            android:stepSize="0.1" /> -->
 
-        <TextView
-            android:id="@+id/tv_average_rating_value"
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="@style/customRatingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_medium"
             android:layout_marginRight="@dimen/margin_medium"
             android:layout_marginTop="@dimen/margin_medium_2"
             android:layout_toRightOf="@id/iv_restaurant"
-            android:text="4.5"
-            android:textColor="@color/primary_text" />
+            android:clickable="false"
+            android:numStars="5"
+            android:rating="2.5"
+            android:stepSize="0.1" />
 
         <TextView
             android:id="@+id/tv_total_rating_count"
@@ -75,7 +79,7 @@
             style="@style/MyAppTitleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_average_rating_value"
+            android:layout_below="@id/ratingBar"
             android:layout_marginBottom="@dimen/margin_medium"
             android:layout_toRightOf="@id/iv_restaurant"
             android:ellipsize="end"
@@ -125,31 +129,31 @@
             android:text="$" />
 
         <ImageView
-            android:id="@+id/ic_halal_small"
+            android:id="@+id/ic_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_tags"
             android:layout_centerInParent="true"
             android:layout_marginRight="@dimen/margin_medium"
             android:layout_toRightOf="@id/iv_restaurant"
-            android:src="@drawable/ic_halal_small" />
+            android:src="@drawable/ic_percent_small" />
 
         <ImageView
-            android:id="@+id/ic_percent_small"
+            android:id="@+id/ic_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_tags"
             android:layout_marginRight="@dimen/margin_medium"
-            android:layout_toRightOf="@id/ic_halal_small"
-            android:src="@drawable/ic_percent_small" />
+            android:layout_toRightOf="@id/ic_1"
+            android:src="@drawable/ic_halal_small" />
 
         <ImageView
-            android:id="@+id/ic_file_small"
+            android:id="@+id/ic_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_tags"
             android:layout_marginRight="@dimen/margin_medium_2"
-            android:layout_toRightOf="@id/ic_percent_small"
+            android:layout_toRightOf="@id/ic_2"
             android:src="@drawable/ic_file_small" />
 
         <TextView

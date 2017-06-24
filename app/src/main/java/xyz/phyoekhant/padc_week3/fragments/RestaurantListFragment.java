@@ -56,6 +56,7 @@ public class RestaurantListFragment extends Fragment {
         ButterKnife.bind(this, rootView);
 
         List<RestaurantVO> restaurantList = RestaurantModel.getInstance().getRestaurantList();
+        tvTotalRestaurantCount.setText(restaurantList.size() + " restaurants deliver to you");
 
         mRestaurantAdapter = new RestaurantAdapter(restaurantList);
         rvRestaurants.setAdapter(mRestaurantAdapter);
@@ -90,6 +91,7 @@ public class RestaurantListFragment extends Fragment {
     public void onEventMainThread(DataEvent.RestaurantLoadedEvent event) {
 
         List<RestaurantVO> newRestaurantList = event.getRestaurantList();
+        tvTotalRestaurantCount.setText(newRestaurantList.size() + " restaurants deliver to you");
         mRestaurantAdapter.setNewData(newRestaurantList);
         mRestaurantAdapter.notifyDataSetChanged();
     }
