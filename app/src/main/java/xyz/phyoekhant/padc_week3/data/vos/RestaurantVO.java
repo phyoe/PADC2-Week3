@@ -2,6 +2,8 @@ package xyz.phyoekhant.padc_week3.data.vos;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 /**
  * Created by Phyoe Khant on 6/19/2017.
  */
@@ -105,4 +107,10 @@ public class RestaurantVO {
     public int getLeadTimeInMin() {
         return leadTimeInMin;
     }
+
+    //saveRestaurants
+    public static void saveRestaurants(List<RestaurantVO> restaurantList) {
+
+    }
+
 }

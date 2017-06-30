@@ -11,13 +11,10 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import xyz.phyoekhant.padc_week3.R;
-import xyz.phyoekhant.padc_week3.events.DataEvent;
 import xyz.phyoekhant.padc_week3.fragments.RestaurantListFragment;
 
 public class HomeActivity extends BaseActivity
@@ -121,10 +118,5 @@ public class HomeActivity extends BaseActivity
         if(!EventBus.getDefault().isRegistered(this)){
             EventBus.getDefault().unregister(this);
         }
-    }
-
-    @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    public void receiveRestaurantList(DataEvent.RestaurantLoadedEvent event) {
-        event.getRestaurantList();
     }
 }

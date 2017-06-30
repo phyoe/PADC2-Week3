@@ -12,7 +12,8 @@ public class MyApp extends Application{
 
     public static final String TAG = "MyApp";
 
-    private static Context context;
+    //private static Context context;  //DON'T
+    private Context context;
 
     @Override
     public void onCreate() {
@@ -22,7 +23,9 @@ public class MyApp extends Application{
         RestaurantModel.getInstance().loadRestaurants();
     }
 
+    /**
     public static Context getContext(){
         return context;
     }
+    /**/
 }

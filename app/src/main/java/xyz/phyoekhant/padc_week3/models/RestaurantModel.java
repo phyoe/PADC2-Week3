@@ -1,14 +1,11 @@
 package xyz.phyoekhant.padc_week3.models;
 
-import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import xyz.phyoekhant.padc_week3.data.vos.RestaurantVO;
-import xyz.phyoekhant.padc_week3.events.DataEvent;
 
 /**
  * Created by Phyoe Khant on 6/20/2017.
@@ -17,11 +14,11 @@ public class RestaurantModel extends BaseModel {
 
     private static RestaurantModel objInstance;
 
-    private List<RestaurantVO> mRestaurantList;
+    //private List<RestaurantVO> mRestaurantList;
 
     private RestaurantModel() {
         super();
-        mRestaurantList = new ArrayList<>();
+        //mRestaurantList = new ArrayList<>();
         dataAgent.loadRestaurants();
     }
 
@@ -36,9 +33,11 @@ public class RestaurantModel extends BaseModel {
         dataAgent.loadRestaurants();
     }
 
+    /**
     public List<RestaurantVO> getRestaurantList() {
         return mRestaurantList;
     }
+    /**/
 
     /**
      * for Network Layer
@@ -47,8 +46,12 @@ public class RestaurantModel extends BaseModel {
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void notifyRestaurantsLoaded(List<RestaurantVO> restaurantList) {
         //Notify that the data is ready - using LocalBroadcast
-        mRestaurantList = restaurantList;
-        EventBus.getDefault().post(new DataEvent.RestaurantLoadedEvent(mRestaurantList));
+        //mRestaurantList = restaurantList;
+        //no need to member data
+        //bind to persistance layer
+
+        //keep the data in persistent layer.
+        //RestaurantVO.saveRestaurants(mRestaurantList);
     }
 
     public void notifyErrorInLoadingRestaurants(String message) {

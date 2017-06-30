@@ -2,6 +2,8 @@ package xyz.phyoekhant.padc_week3.data.agents;
 
 import android.util.Log;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -11,6 +13,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import xyz.phyoekhant.padc_week3.data.responses.RestaurantListResponse;
+import xyz.phyoekhant.padc_week3.events.DataEvent;
 import xyz.phyoekhant.padc_week3.models.RestaurantModel;
 import xyz.phyoekhant.padc_week3.utils.CommonInstances;
 import xyz.phyoekhant.padc_week3.utils.RestaurantsConstants;
@@ -58,7 +61,8 @@ public class RetrofitDataAgent implements RestaurantDataAgent {
                     if (restaurantListResponse == null) {
                         RestaurantModel.getInstance().notifyErrorInLoadingRestaurants(response.message());
                     } else {
-                        RestaurantModel.getInstance().notifyRestaurantsLoaded(restaurantListResponse.getRestaurantList());
+                        EventBus.getDefault().post(new DataEvent.RestaurantLoadedEvent(restaurantListResponse.getRestaurantList()));
+                        //RestaurantModel.getInstance().notifyRestaurantsLoaded(restaurantListResponse.getRestaurantList());
                     }
                 } else {
                     Log.e("DataAgent", "Loading RestaurantList Not Success");
